@@ -1,0 +1,35 @@
+## File locations
+REF_FILE_NAME   multiple_isoforms.gtf
+GEN_DIR         genomes/
+
+## Library preparation
+# Expression
+NB_MOLECULES    500000
+TSS_MEAN	50
+POLYA_SCALE     NAN
+POLYA_SHAPE    NAN
+
+# Fragmentation
+FRAG_SUBSTRATE	RNA
+FRAG_METHOD	UR
+FRAG_UR_ETA     150
+
+# Reverse Transcription
+RTRANSCRIPTION	YES
+RT_MOTIF	default
+
+# Amplification 
+PCR_DISTRIBUTION default
+GC_MEAN 	 NaN
+PCR_PROBABILITY  0.05
+
+# Size Filtering
+FILTERING 	NO
+
+## Sequencing
+READ_NUMBER	10000000
+READ_LENGTH	50
+PAIRED_END	YES
+
+# create a fasta file
+FASTA   NO
