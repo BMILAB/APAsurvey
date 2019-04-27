@@ -1,9 +1,14 @@
-# APAsurvey
+Introduction
+====================
+This github site describes relevant information for the review paper "A survey on identification and quantification of alternative polyadenylation sites from RNA-seq data". Currently, a number of computational approaches for identifing APA sites and/or dynamic APA events from RNA-seq data have emerged in the literature, which provide valuable yet preliminary results that should be refined to yield credible guidelines for the scientific community. We conducted objective benchmarking analysis using RNA-seq datasets from different species (human, mouse, and Arabidopsis) and simulated datasets to present a systematic evaluation of 11 representative methods.  
+The data and tools investigated in the review are described in the webpage [Data and Tools](#Data and Tools).  
+The commands used for running tools for identification and quantification of APA sites from RNA-seq data are given in the webpage Running Tools.  
+The performance evaluation is described here.  
+The impact of parameters for different tools is described in the webpage Impact of Parameters.   
 
-A survey on identification and quantification of alternative polyadenylation sites from RNA-seq data
 
-# Required Tools
-
+### Data and Tools
+--------------------
 * [Flux Simulator](http://confluence.sammeth.net/display/SIM/Home), [HISAT2](http://ccb.jhu.edu/software/hisat2/index.shtml), [bedtools](https://bedtools.readthedocs.io/en/latest/), [Samtools](http://www.htslib.org)
 
 
