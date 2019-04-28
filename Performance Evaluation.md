@@ -8,4 +8,4 @@
   * A cutoff of 50 bp was used to determine whether a predicted poly(A) site is a true positive or not. Top `5000` to `30,000` annotated poly(A) sites according to the supported number of reads were chosen as the reference in annotated poly(A) site.
   
 * Demo data
-  * Demo data in the [result_data]() folder.
+  * Demo data in the [result_data](https://github.com/BMILAB/APAsurvey/tree/master/result_data) folder.
