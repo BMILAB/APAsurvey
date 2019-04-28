@@ -3,14 +3,14 @@
 Simulated Data
 ------------------------------
 * Select Valid Gene  
-  In the [simulated data](https://github.com/BMILAB/APAsurvey/tree/master/simulate_data) folder,We use the hg19 annotation file(gtf), with the R code(detail in github), select the exon with all genes, and random select 1000 genes (generate 2 isoforms) and 1000 genes (50 genes: 1 isoform, 450 genes: 2 isoforms, 300 genes: 3 isoform, 200 genes 4 isoforms), we got the two gtf files(two isoforms.gtf and multiple isoforms.gtf). 
+	* In the [simulated data](https://github.com/BMILAB/APAsurvey/tree/master/simulate_data) folder,We use the hg19 annotation file(gtf), with the R code(detail in github), select the exon with all genes, and random select 1000 genes (generate 2 isoforms) and 1000 genes (50 genes: 1 isoform, 450 genes: 2 isoforms, 300 genes: 3 isoform, 200 genes 4 isoforms), we got the two gtf files(two isoforms.gtf and multiple isoforms.gtf). 
   ```
-  Rscript selectValidGene.R 
+	Rscript selectValidGene.R 
   ```  
 * Simulated data   
-  Use the flux-simulator tool, with the hg19 genomes fasta file and the gtf file for first step, generate simulated data.
+	* Use the flux-simulator tool, with the hg19 genomes fasta file and the gtf file for first step, generate simulated data.
   ```
-  flux-simulator -t simulator -p syn1000.par 
+	flux-simulator -t simulator -p syn1000.par 
   ```  
 * Main files in simulated data  
 	* bed file: The BED format is employed as default for describing reads produced in a Flux Simulator run by the genomic regions from which they are originating. Reads that fall partially in the poly-A tail are truncated to their respective content of genomic sequence. In contrast, reads that fall completely into the poly-A tail are described to be located on the special reference sequence 'poly-A'.  
