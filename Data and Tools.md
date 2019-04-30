@@ -36,8 +36,8 @@ Tools evaluated in the benchmarking study
 |:----|:------|:------------|:------------------|
 |[MISO](https://miso.readthedocs.io/en/fastmiso/#pipeline)  (Kate, et al., 2010)|Python|No|Yes|
 |[roar](https://bioconductor.org/packages/release/bioc/html/roar.html)  (Grassi, et al., 2016)|R|No|Yes|
-|[QAPA](https://github.com/morrislab/qapa)  (Ha, et al., 2018)|R,Python|Yes|Yes|
-|[PAQR](https://github.com/zavolanlab/PAQR_KAPAC)  (Gruber, et al., 2018)|R,Python|Yes|Yes|
+|[QAPA](https://github.com/morrislab/qapa)  (Ha, et al., 2018)|R, Python|Yes|Yes|
+|[PAQR](https://github.com/zavolanlab/PAQR_KAPAC)  (Gruber, et al., 2018)|R, Python|Yes|Yes|
 |[3USS](http://circe.med.uniroma1.it/3uss_server/)  (Le Pera, et al., 2015)|Web|Yes|No|
 |[PASA](https://github.com/PASApipeline/PASApipeline/wiki)  (Campbell, et al., 2006)|Perl|Yes|No|
 |[Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/cuffdiff/index.html)  (Trapnell, et al., 2012)|R|Yes|No|
@@ -50,6 +50,6 @@ Tools evaluated in the benchmarking study
 |[ChangePoint](http://utr.sourceforge.net)  (Wang, et al., 2014)|Java|No|Yes|
 |[IsoSCM](https://github.com/shenkers/isoscm)  (Shenker, et al., 2015)|Java|Yes|Yes|
 |[DaPars](https://github.com/ZhengXia/dapars)  (Xia, et al., 2014)|Python|Yes|Yes|
-|[APAtrap](https://sourceforge.net/projects/apatrap/)  (Ye, et al., 2018)|R,Perl|Yes|Yes|
+|[APAtrap](https://sourceforge.net/projects/apatrap/)  (Ye, et al., 2018)|R, Perl|Yes|Yes|
 |[TAPAS](https://github.com/arefeen/TAPAS)  (Arefeen, et al., 2018)|R|Yes|Yes|
 |[EBChangePoint](http://ebchangepoint.sourceforge.net)  (Zhang and Wei, 2016)|Java|Yes|Yes|
