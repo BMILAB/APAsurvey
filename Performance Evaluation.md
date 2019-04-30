@@ -8,4 +8,4 @@
   * A cutoff of 50 bp was used to determine whether a predicted poly(A) site is a true positive or not. Top `5000` to `30,000` annotated poly(A) sites according to the supported number of reads were chosen as the reference poly(A) sites.
   
 * Demo data
-  * Prediction results for the human MAQC Brain data from each benchmarked tools were stored in the [result_data](https://github.com/BMILAB/APAsurvey/tree/master/result_data) folder. These files are then processed and used for performance evaluation.
+  * Prediction results for the human MAQC brain data from each benchmarked tool were stored in the [result_data](https://github.com/BMILAB/APAsurvey/tree/master/result_data) folder. These files are then processed and used for performance evaluation.
