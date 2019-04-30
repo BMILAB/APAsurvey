@@ -1,3 +1,5 @@
+This folder stores files of the simulated data.
+
 #####File Information
 
 #
