@@ -1,4 +1,4 @@
-# Running Tools  
+# Prediction of APA sites and APA dynamics using different tools.
 
 Example files of input data
 ------------------------------
@@ -7,7 +7,7 @@ Example files of input data
 * hg19.gff/hg19_refFlat.txt -- reference genome annotation
 
 
-Running
+Running different tools for APA prediction
 ------------------------------
 * Generate bam file and bedgraph file
   * Use [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to trim and filter out low quality raw reads.
