@@ -1,10 +1,10 @@
 # Running Tools  
 
-Input data
+Example files of input data
 ------------------------------
-* Brain.fq (MAQC Brain exp 2 phi X) &  Brian_control.fq (MAQC UHR exp 2 auto) --RNA-seq datasets from two conditions  
-* hg19.fa --reference genome sequence  
-* hg19.gff/hg19_refFlat.txt --reference genome annotation
+* Brain.fq (MAQC Brain exp 2 phi X) &  Brian_control.fq (MAQC UHR exp 2 auto) -- RNA-seq datasets from two conditions  
+* hg19.fa -- reference genome sequence  
+* hg19.gff/hg19_refFlat.txt -- reference genome annotation
 
 
 Running
@@ -14,11 +14,11 @@ Running
   ```
 	java -jar trimmomatic-0.35.jar SE -phred33 Brain.fq  Brain.paired.fastq Brain.unpaired.fastq ILLUMINACLIP:TruSeq3-SE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
   ```  
-  * Use [HISAT2](http://ccb.jhu.edu/software/hisat2/index.shtml) or [tophat](http://ccb.jhu.edu/software/tophat/index.shtml) to align the Brain/Brain_control reads to reference genome.  
+  * Use [HISAT2](http://ccb.jhu.edu/software/hisat2/index.shtml) or [tophat](http://ccb.jhu.edu/software/tophat/index.shtml) to align the Brain/Brain_control reads to the reference genome.  
   ```
 	hisat2 -x reference_genome_index Brain.paired.fastq -S Brain.sam
   ```   
-  * Convert file format (Tool: [Samtools](http://samtools.sourceforge.net) and [bedtools](https://bedtools.readthedocs.io/en/latest/))  
+  * Convert file format (Tools: [Samtools](http://samtools.sourceforge.net) and [bedtools](https://bedtools.readthedocs.io/en/latest/))  
   ```
 	samtools view -bS Brain.sam > Brain.bam  
   
@@ -30,7 +30,6 @@ Running
   ```   
    
 * MISO
-  * Running MISO
     * Index the annotation using index_gff
     ```
 	  index_gff --index hg19.gff  indexed/
@@ -54,7 +53,6 @@ Running
     ```  
   
 * roar
-  * Run roar
   ```
   library(roar)
   gtf <- system.file("examples", "apa.gtf", package="roar")
@@ -69,8 +67,7 @@ Running
   ```  
 
 * QAPA
-  * Running QAPA
-    *  To extract 3′ UTRs from annotation    
+    *  Extract 3′ UTRs from annotation    
     ```
     qapa build --db ensembl_identifiers.txt -g gencode.polyA_sites.bed -p clusters.mm10.bed gencode.basic.txt > output_utrs.bed
     ```  
@@ -78,7 +75,7 @@ Running
     ```
     qapa build --db ensembl_identifiers.txt -o custom_sites.bed gencode.basic.txt > output_utrs.bed
     ```    
-    * To extract sequences from the BED file prepared by build, a reference genome in FASTA format is required
+    * Extract sequences from the BED file prepared by build (a reference genome in FASTA format is required)
     ```
     qapa fasta -f hg19.fa output_utrs.bed output_sequences.fa
     ```  
@@ -94,8 +91,7 @@ Running
     ```  
  
 * PAQR
-  * Running PAQR
-  Configure the input parameters  
+  * Configure the input parameters  
   The PAQR subdirectory contains a file called "config.yaml". This files contains all information about used parameter values, data locations, file names and so on. During a run, all steps of the pipeline will retrieve their parameter values from this file.
   ```
   max_cores=4 # maximum number of threads that will run in parallel
@@ -105,7 +101,7 @@ Running
   max_cores=8 # maximum number of threads that will run in parallel
   snakemake -s part_two.Snakefile -p --cores ${max_cores} &>> log_output.log
   ```  
-  * Also the single steps/scripts of the pipeline
+  * The single steps/scripts of the pipeline
   ```
   python calculate-TIN-values.py \
          -i data/bam_files/Brain.bam \
@@ -133,13 +129,12 @@ Running
           --file HNRNPC_KD/bias.TIN.median_per_sample.tsv\
           --pdf HNRNPC_KD/bias.transcript_wide.TIN.boxplots.pdf
   ``` 
-  * Running KAPAC
+  * Run KAPAC
   ```
   Rscript --vanilla KAPAC.R --help
   ``` 
   
 * Cufflinks
-  * Running Cufflinks
   ```
   cufflinks -p 8 -o brain --overlap-radius 75 brain.sorted.bam
   ``` 
@@ -148,7 +143,6 @@ Running
   ``` 
 
 * ExUTR
-  * Running ExUTR
     * Reading Open Frame (ORF) prediction
     ```
     perl 3UTR_orf.pl -i transcripts.fasta  -d /home/user/swissprot/swissprot -a 8 -o Test -l un
@@ -159,7 +153,6 @@ Running
     ``` 
   
 * Scripture
-  * Running Scripture
     * Make paired end alignment files using Scripture  
     Remove the headers from the TopHat alignment file (headers begin with "@") and sort each by read name
     ```
@@ -169,7 +162,7 @@ Running
     ```
     java -Xmx4000m -jar scripture.jar -task makePairedFile -pair1 Brain.sorted.sam -pair2 Brian_control.sam -out Brain.paired.sam –sorted
     ``` 
-    *  Run Scripture  
+    * Run Scripture  
     Combine TopHat alignment file and paired end alignments file, then sort and index  
     ```
     cat Brain.sorted.sam Brian_control.sorted.sam > all_Brain.sam
@@ -182,7 +175,6 @@ Running
     ``` 
    
 * KLEAT
-  * Running KLEAT
     * Use the included script (TA.sh) to generate the input necessary for KLEAT 
     ```
      TA.sh -a Brain1.fq.gz -b Brain2.fq.gz -n Brain -k "32 52 72" -o Brain/assembly -t 6 -m 15G
@@ -193,19 +185,16 @@ Running
     ``` 
     
 * ContextMap2
-  * Running ContextMap2
   ```
   java -jar ContextMap_v2.1.0.jar mapper -read Brain.fq  -aligner_name bowtie2  -aligner_bin /user/home/bowtie2 -indexer_bin   ./bowtie2_build  -indices chr1,chr2 -genome /user/home/hg19 -o Brain --ployA
   ``` 
    
 * GETUTR
-  * Running GETUTR
   ```
   python GETUTR.py -i Brain.bam -o Brain.3UTR -m 10 -r refFlat.txt
   ``` 
 
 * PHMM
-  * Running PHMM
     * Build transcript database 
     ```
     Rscript buildTranscriptDB_fixed.R  refGene txdb.hg19.refGene.sqlite hg19
@@ -224,7 +213,6 @@ Running
     ```    
  
 * ChangePoint
-  * Running ChangePoint
   ```
   perl change_point.pl -t Brain.bam -c Brain_control.bam -g 3utr.bed -d s -o Brain
   ```    
@@ -233,7 +221,6 @@ Running
   ```    
 
 * IsoSCM
-  * Running IsoSCM
   ```
   java -Xmx102400m -jar IsoSCM-2.0.11.jar assemble -coverage false -bam Brain.bam -base Brain -s unstranded
   java -Xmx102400m -jar IsoSCM-2.0.11.jar assemble -coverage false -bam Brain_control.bam -base Brain_control -s unstranded
@@ -243,12 +230,11 @@ Running
   ```  
  
 * DaPars
-  * Running DaPars
     * Generate region annotation
     ```
     python DaPars_Extract_Anno.py -b hg19_refseq_extracted_3UTR.bed -s hg19_4_19_2012_Refseq_id_from_UCSC.txt -o extracted_3UTR.bed
     ```  
-    * Running 
+    * Run DaPars
     ```
     python DaPars_main.py configure_file  
      configure_file: 
@@ -266,8 +252,7 @@ Running
     ```  
     
 * APAtrap
-  * Running APAtrap
-    * identifyDistal3UTR  
+    * Identify distal 3' UTR  
     For genome having long 3'UTR
     ```
     identifyDistal3UTR -i Brain.bedgraph Brain_control.bedgraph -m hg19.genemodel.bed -o Brain.utr.bed  
@@ -292,7 +277,6 @@ Running
     ``` 
 
 * TAPAS
-  * Running TAPAS
     * APA site detection
     ```
     samtools view -b Brain.sorted.bam > Brain.bam
@@ -305,7 +289,6 @@ Running
     ```
 
 * EBChangePoint
-  * Running EBChangePoint
   ```
   perl EBChangePoint.pl -c Brain.bam -t Brain_control.bam -g 3utr.bed  -h1  junctions_brain.bed   -h2 junctions_brain_control.bed
   ```  
