@@ -48,7 +48,7 @@ Running
 --------------------
 
 * APAtrap
-  * APA site detection for different parameters
+  * APA site detection using different parameters
   ```
   predictAPA.pl –a 100 –c 20 -i Brain.bedgraph Brain_control.bedgraph -g 2 -n 1 1 -u hg19.utr.bed -o output.txt -d 0.1 
   ```
@@ -66,7 +66,7 @@ Running
   ```
 
 * DaPars
-  * APA site detection for different parameters  
+  * APA site detection using different parameters  
   ```
   python DaPars_main.py configure_file
    configure_file: 
@@ -105,7 +105,7 @@ Running
   ```  
 
 * ChangePoint
-  * APA dynamics detection for different parameters
+  * APA dynamics detection using different parameters
   ```
   perl change_point.pl -t Brain.bam -c Brain_control.bam -g 3utr.bed -d s -n 20 –a 0.05
   perl change_point.pl -t Brain.bam -c Brain_control.bam -g 3utr.bed -d l -n 20 –a 0.05
@@ -144,7 +144,7 @@ Running
   ```  
   
 * IsoSCM
-  * APA site detection for different parameters  
+  * APA site detection using different parameters  
   ```
    java -Xmx102400m -jar IsoSCM-2.0.11.jar assemble -min terminal 300 -min fold 0.5 -coverage false -bam Brain.bam -base Brain -s unstranded  -jnct alpha 0.05
   ```  
@@ -153,7 +153,7 @@ Running
   ``` 
   
 * GETUTR
-  * APA site detection for different parameters  
+  * APA site detection using different parameters  
   ```
   python GETUTR.py -i Brain.bam -o Brain.3UTR -m 10 -r refFlat.txt
   ``` 
