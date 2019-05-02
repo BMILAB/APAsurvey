@@ -2,6 +2,8 @@
 
 Simulated Data
 ------------------------------
+Simulated data were generated as in the previous studies of APAtrap (Ye et al. Bioinformatics 2018) or DaPars (Xia et al. Nature Communications 2014). 
+
 * Select candidate gene models  
 	*  Based on the human genome annotation file (version [hg19](http://genome.ucsc.edu/cgi-bin/hgTables)), we first filtered out genes with less than 3 exons. Then 2000 genes were randomly selected from the remaining genes, which were used as candidate gene models for the simulation study. To simulate genes with two isoforms, 1000 genes were randomly selected from the candidate gene set. Then the 3' end of the first isoform is the same as the hg19 gene model, while the 3' end of the second isoform is 1000 bp beyond the first 3' end. We also simulated genes with variable number of isoforms (one to four isoforms). The gene set is the same as that used for simulating two-isoform genes. Then 50, 450, 300, and 200 genes were randomly selected from the 1000 genes and were regarded as genes with 1, 2, 3, and 4 isoforms, respectively. 50 genes are with only one isoform, whose 3' end is the same as the hg19 gene model. For genes with two to four isoforms, the respective 3' end is  500 bp, 1000 bp, and 1500 bp beyond the first 3' end, respectively. Finally, two gtf files (two isoforms.gtf and multiple isoforms.gtf) were obtained. Relevant files and code are in the [simulated data](https://github.com/BMILAB/APAsurvey/tree/master/simulate_data) folder.
   ```
