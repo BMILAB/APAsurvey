@@ -10,7 +10,7 @@ Simulated data were generated as in the previous studies of APAtrap (Ye et al. B
 	Rscript selectValidGene.R 
   ```  
 * Simulate RNA-seq reads   
-	* We used the [Flux Simulator](http://confluence.sammeth.net/display/SIM/Home) tool, hg19 genomes fasta file, and the gtf files from the first step (Select candidate gene models) to generate simulated RNA-seq reads. In the benchmarking study, 10 millions reads were generated.
+	* We used the [Flux Simulator](http://confluence.sammeth.net/display/SIM/Home) tool, hg19 genomes fasta file, and the gtf files from the first step (Select candidate gene models) to generate simulated RNA-seq reads. In the benchmarking study, 100 millions reads were generated for the 1000 two-isoform genes and 1000 one to four isoform genes, respectively.
   ```
 	flux-simulator -t simulator -p syn1000.par 
   ```  
